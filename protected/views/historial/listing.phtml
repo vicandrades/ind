@@ -1,0 +1,78 @@
+ 	<div  class= "col-xs-0 col-sm-0 col-md-0 col-lg-0">
+ 				<div class= "panel panel-primary">
+ 					<div class= "panel-heading">
+ 						<h3 class= "panel-title"> LISTA DE TODO </h3>
+ 					</div>
+ 					
+ 					<div class="panel-body">
+ 					
+ 					
+ 					
+ 								
+ 						</div>
+ 						
+					<?php  if (isset($this->_listado )&& count($this->_listado)):?>
+						<table class="table table-bordered table-hover" >
+							<thead>
+									<tr class="info">
+										<th>#</th>
+										<th>Nombre</th>
+										<th>Apellido</th>
+										<th>Cedula</th>
+										<th>Fecha Nacimiento</th>
+										<th>Fecha ingreso</th>
+										<th>Sexo</th>
+										<th>tipo integrante</th>
+										<th>Carrera</th>
+										<th>Semestre</th>
+										<th>Experiencia</th>
+										<th>nombre del grupo</th>
+										<th>Limite de personas</th>
+										<th>Actividad</th>
+										<th>Fecha inicio</th>
+										<th>Fecha FIN</th>
+										<th>Ubicacion</th>
+										<th>Instrumento</th>
+										<th>Tipo de instrumento</th>
+								</tr>
+							</thead>
+							<tbody>
+							<?php  for ($i=0; $i < count($this->_listado); $i++):?>
+								<?php if(!$this->_listado[$i]['ci'] == 0) :?>
+									<tr class="info">
+											<td><?php echo $i+1;?></td>
+											<td><?php echo $this->_listado[$i]['nombre'] ?></td>
+											<td><?php echo $this->_listado[$i]['apellido'] ?></td>
+											<td><?php echo $this->_listado[$i]['ci'] ?></td>
+											<td><?php echo $this->_listado[$i]['fecha_nacimiento'] ?></td>
+											<td><?php echo $this->_listado[$i]['fecha_ingreso'] ?></td>
+											<td><?php echo $this->_listado[$i]['sexo'] ?></td>
+											<td><?php echo $this->_listado[$i]['tipo_persona'] ?></td>
+											<td><?php echo $this->_listado[$i]['carrera'] ?></td>
+											<td><?php echo $this->_listado[$i]['semestre'] ?></td>
+											<td><?php echo $this->_listado[$i]['experiencia'] ?></td>
+											<td><?php echo $this->_listado[$i]['nombre_grupo'] ?></td>
+											<td><?php echo $this->_listado[$i]['limite_personas'] ?></td>
+											<td><?php echo $this->_listado[$i]['actividad'] ?></td>
+											<td><?php echo $this->_listado[$i]['fecha_inicio'] ?></td>
+											<td><?php echo $this->_listado[$i]['fecha_fin'] ?></td>
+											<td><?php echo $this->_listado[$i]['ubicacion'] ?></td>
+											<td><?php echo $this->_listado[$i]['instrumento'] ?></td>
+											<td><?php echo $this->_listado[$i]['tipo_instrumento'] ?></td>
+					<?php endif;?>
+						   <?php endfor;?>
+						   </tbody>
+						</table>
+					<?php else:?>
+							<pre>No existen registros en la base de datos</pre>
+					<?php endif;?>
+	 	  	
+	 	  </div>
+	</div>
+	
+	</div>
+	
+	</div>
+	
+ </div>
+</div>

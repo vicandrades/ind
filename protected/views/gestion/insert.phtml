@@ -1,0 +1,190 @@
+<div  class= "col-xs-9 col-sm-9 col-md-9 col-lg-9">
+ 				<div class= "panel panel-primary">
+ 					<div class= "panel-heading" style="background-color:#1C1C1C">
+ 						<h3 class= "panel-title"> Prestamos y devoluciones de articulos </h3>
+ 					</div>
+ 					
+ 					<div class="panel-body">
+		<form class="form-horizontal" role="form" action="<?php  echo BASE_URL;?>gestion/prestamo" method="post" name="registrop" id="registrop">
+		
+		<div class="form-group">
+		<center>
+		<button style="" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Prestamo de Articulos</button>
+		</center>
+  <!-- Trigger the modal with a button -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Prestamo Articulos</h4>
+        </div>
+        <div class="modal-body">
+
+	<div class="form-group">
+		<label class="col-sm-4 control-label">Tipo de persona:</label>
+		<div class="col-sm-5">
+			<select id="tipo" name="tipo" class="form-control" required>
+					<option value="0">SELECCIONE</option>
+			</select>			
+		</div>
+	</div>
+
+	
+	<div class="form-group" style="display:none;" id="divcedulae">
+		<label class="col-sm-4 control-label">Cedula Escolar:</label>
+		<div class="col-sm-5">
+			<input type="text" class="form-control" name="cedulae" id="cedulae" placeholder="Cedula Escolar"> 
+		</div>
+	</div>
+
+	<div class="form-group" style="display:none;" id="divcedula">
+		<label class="col-sm-4 control-label">Cedula:</label>
+		<div class="col-sm-5">
+			<input type="text" class="form-control" name="cedula" id="cedula" placeholder="Cedula"> 
+		</div>
+	</div>
+
+	<center>
+		<button type="button" class="btn btn-primary" onclick="validar()"> Validar </button>
+	</center>
+	<br>
+
+	<div class="form-group" style="display:none;" id="divdatos">
+		<center> <label class="col-sm-4 control-label">Nombre y apellido:</label> </center>
+		<div class="col-sm-4">
+			<center> <span id="span"></span> </center>
+		</div>			
+	</div>
+	
+
+	<div class="form-group" style="display:none;" id="divarticulos">
+		<label class="col-sm-4 control-label">articulos:</label>
+		<div class="col-sm-5">
+			<select id="articulos" name="articulos" class="form-control" required>
+					<option value="0">SELECCIONE</option>
+			</select>			
+		</div>
+	</div>
+
+	<div class="form-group" style="display:none;" id="divfecha">
+		<label class="col-sm-4 control-label">Fecha de devolucion:</label>
+		<div class="col-sm-5">
+			<input type="date" class="form-control" id="fecha" name="fecha" placeholder="Fecha" required> 
+		</div>
+	</div>
+
+	<div class="form-group" style="display:none;" id="divcantidad">
+		<label class="col-sm-4 control-label">Cantidad a prestar:</label>
+		<div class="col-sm-5">
+			<input type="text" class="form-control" name="cantidad" placeholder="Cantidad" id="cantidad" required> 
+		</div>
+	</div>
+
+	<center> <span id="span2"></span> </center>
+
+        </div>
+        <div class="modal-footer">
+        <center>
+		<button type="button" class="btn btn-primary" onclick="registrarp()"> Registrar </button>
+		</center>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+	</div>					
+</form>
+
+<form class="form-horizontal" role="form" action="<?php  echo BASE_URL;?>persons/agregarnobiblio" method="post">
+		
+		<div class="form-group">
+		<center>
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">Devolucion de articulos</button>
+		</center>
+  <!-- Trigger the modal with a button -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog modal-lg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Prestamos pendientes</h4>
+        </div>
+        <div class="modal-body">
+	
+	<?php  if (isset($this->_listado )&& count($this->_listado)):?>
+						<table id="example"  style="text-align:center;"  class="display" cellspacing="0" border="0" width="100%">
+							<thead>
+									<tr>
+										<th>#</th>
+										<th>Nombre</th>
+										<th>Apellido</th>
+										<th>Articulo</th>
+										<th>Fecha Entrega</th>
+										<th>Fecha Devolucion</th>
+									<th colspan="1">Devolver Articulos</th>
+								</tr>
+							</thead>
+							<tbody>
+							<?php  for ($i=0; $i < count($this->_listado); $i++):?>
+								<?php if(!$this->_listado[$i]['id_prestamos'] == 0) :?>
+									<tr>
+											<td><?php echo $i+1;?></td>
+											<td><?php echo $this->_listado[$i]['nombre1'] ?></td>
+											<td><?php echo $this->_listado[$i]['apellido1'] ?></td>
+											<td><?php echo $this->_listado[$i]['titulo'] ?></td>
+											<td><?php echo $this->_listado[$i]['fecha_entrega']?></td>
+											<td><?php echo $this->_listado[$i]['fecha_devolucion'] ?></td>
+											<td>
+												<a href="<?php echo BASE_URL .'gestion/devolucion/'.$this->_listado[$i]['id_prestamos'];?>">
+													<span class="glyphicon glyphicon-cog" data-toggle="tooltip" title="registrar devolucion"></span>
+												</a>
+											</td>
+					<?php endif;?>
+						   <?php endfor;?>
+						   </tbody>
+						</table>
+					<?php else:?>
+							<pre>No existen registros en la base de datos</pre>
+					<?php endif;?>
+
+	 	  	
+		
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+	</div>					
+</form>
+
+
+
+ 					
+ 				
+ 		</div>
+ 			<!-- no borrar -->
+ 			</div>
+ 			
+ 		</div>
+ 	</div>
+
+ 	
+ 	
+ 				
+ 					
+ 					
+ 					
+ 					

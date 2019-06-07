@@ -1,0 +1,85 @@
+ 	<div  class= "col-xs-9 col-sm-9 col-md-9 col-lg-9">
+ 				<div class= "panel panel-primary">
+ 					<div class= "panel-heading">
+ 						<h3 class= "panel-title"> Registro de Actividad </h3>
+ 					</div>
+ 		
+
+ 		<div class="panel-body">
+		<form class="form-horizontal" role="form" action="<?php  echo BASE_URL;?>gestion/actividad" method="post" name="registrop" id="registrop">
+
+ 		<div class="form-group">
+		<label class="col-sm-4 control-label">Fecha actividad:</label>
+		<div class="col-sm-5">
+			<input type="date" class="form-control" id="fecha" name="fecha" placeholder="Fecha" required> 
+		</div>
+		</div>
+
+		<div class="form-group" >
+		<label class="col-sm-4 control-label">Nombre:</label>
+		<div class="col-sm-5">
+			<input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre"> 
+		</div>
+		</div>
+
+		<div class="form-group" >
+		<label class="col-sm-4 control-label">Cantidad hombres:</label>
+		<div class="col-sm-5">
+			<input type="text" class="form-control" name="cantidadh" id="cantidadh" placeholder="Cantidad"> 
+		</div>
+		</div>
+
+		<div class="form-group" >
+		<label class="col-sm-4 control-label">Cantidad mujeres:</label>
+		<div class="col-sm-5">
+			<input type="text" class="form-control" name="cantidadm" id="cantidadm" placeholder="Cantidad"> 
+		</div>
+		</div>
+
+		<div class="form-group">
+		<label class="col-sm-4 control-label">Maestros:</label>
+		<div class="col-sm-5">
+		<input type="text" class="form-control" name="busqueda2" id="busqueda2" value="" placeholder="" maxlength="30" autocomplete="off" onKeyup="buscar2();">
+			<br>
+			<select multiple="multiple" id="maestros" name="maestros" class="form-control" required>
+					<option value="0">SELECCIONE</option>
+			</select>			
+		</div>
+	</div>
+
+	<div class="form-group">
+
+		<label class="col-sm-4 control-label">Grado Seccion:</label>
+		<div class="col-sm-5">
+			<select id="gs" name="gs" class="form-control" required>
+					<option value="0">SELECCIONE</option>
+			</select>			
+		</div>
+	</div>
+
+	<div class="form-group">
+
+		<label class="col-sm-4 control-label">Materiales:</label>
+		<div class="col-sm-5">
+			<select multiple ="multiple" id="materiales" name="materiales[]" class="form-control" required>
+					<option value="0">SELECCIONE</option>
+			</select>			
+		</div>
+	</div>
+
+	<center>
+		<input type="submit" class="btn btn-primary" value="Registrar">
+	</center>
+	</form>
+	
+	</div>
+	
+ </div>
+</div>
+ 									 
+ 												
+ 										
+ 					
+ 					
+ 					
+ 	

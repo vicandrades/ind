@@ -1,0 +1,76 @@
+
+<div  class= "col-xs-9 col-sm-9 col-md-9 col-lg-9">
+ 				<div class= "panel panel-primary">
+ 					<div class= "panel-heading">
+ 						<center>
+ 						<h3 class= "panel-title"> Nuevo Plan </h3>
+ 						</center>
+ 					</div>
+ 					
+ 					<div class="panel-body">
+
+<form id="registrar" class="form-horizontal" role="form" action="<?php  echo BASE_URL;?>persons/insert" method="post">
+	
+	<div class="form-group">
+		<label class="col-sm-3 control-label">Nombre:</label>
+		<div class="col-sm-5">
+			<input type="text" class="form-control" name="nombre" placeholder="Nombre" required> 
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="col-sm-3 control-label">Descripcion:</label>
+		<div class="col-sm-5">
+			<input type="text" class="form-control" name="descripcion" placeholder="descripcion" required> 
+		</div>
+	</div>
+
+	<div class="form-group" id="divmoneda">
+
+		<label class="col-sm-3 control-label">Moneda de facturacion:</label>
+		<div class="col-sm-5">
+			<select id="moneda" name="moneda" class="form-control" required>
+			</select>			
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="col-sm-3 control-label">Monto:</label>
+		<div class="col-sm-5">
+			<input id="monto" type="text" class="form-control" onKeyPress="return soloNumeros(event)" name="monto" placeholder="Monto" required> 
+		</div>
+	</div>
+
+		<div class="form-group" id="divfrecuencia">
+
+		<label class="col-sm-3 control-label">Frecuencia de facturacion:</label>
+		<div class="col-sm-5">
+			<select id="frecuencia" name="frecuencia" class="form-control" required>
+			</select>			
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="col-sm-3 control-label">Fecha de facturacion:</label>
+		<div class="col-sm-5">
+			<input type="date" id="fecha_facturacion" class="form-control" name="fecha_facturacion" placeholder="Fecha de facturacion" required> 
+		</div>
+	</div>
+
+	<center>
+		<input type="submit" class="btn btn-primary" value="Registrar">
+	</center>			
+					
+</form>
+ 					
+			
+ <span id="respuesta" name="respuesta"> </span>						
+ 					
+	</div>
+ 				</div>
+ 		</div>
+ 			<!-- no borrar -->
+ 			</div>
+ 			
+ 		</div>
+ 	</div>

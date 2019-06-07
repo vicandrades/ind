@@ -1,0 +1,52 @@
+<div  class= "col-xs-9 col-sm-9 col-md-9 col-lg-9">
+ 				<div class= "panel panel-primary">
+ 					<div class= "panel-heading">
+ 						<center>
+ 						<h3 class= "panel-title"> Grupos </h3>
+ 						</center>
+ 					</div>
+ 					
+ 					<div class="panel-body">
+
+<form class="form-horizontal" role="form" action="<?php  echo BASE_URL;?>persons/grupo" method="post">
+	<?= $this->_idpersona; ?>
+	<?php  if (isset($this->_listado )&& count($this->_listado)):?>
+						<table class="table table-bordered table-hover">
+							<thead>
+									<tr>
+										<th>#</th>
+										<th>Nombre</th>
+										<th>Limite de personas</th>
+									<th colspan="1">Acciones</th>
+								</tr>
+							</thead>
+							<tbody>
+							<?php  for ($i=0; $i < count($this->_listado); $i++):?>
+								<?php if(!$this->_listado[$i]['nombre_grupo'] == 0) :?>
+									<tr>
+											<td><?php echo $i+1;?></td>
+											<td><?php echo $this->_listado[$i]['nombre_grupo'] ?></td>
+											<td><?php echo $this->_listado[$i]['limite_personas'] ?></td>
+											<td>
+												<a href="<?php echo BASE_URL .'persons/asignar/'.$this->_idpersona.'/'.$this->_listado[$i]['idgrupo'];?>">
+													<span class="glyphicon glyphicon-plus" data-toggle="tooltip" title="asignar persona"></span>
+												</a>
+											</td>
+					<?php endif;?>
+						   <?php endfor;?>
+						   </tbody>
+						</table>
+					<?php else:?>
+							<pre>No existen registros en la base de datos</pre>
+					<?php endif;?>
+
+					
+</form>
+ 					</div>
+ 				</div>
+ 		</div>
+ 			<!-- no borrar -->
+ 			</div>
+ 			
+ 		</div>
+ 	</div>

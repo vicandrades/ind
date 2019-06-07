@@ -1,0 +1,122 @@
+
+<div  class= "col-xs-9 col-sm-9 col-md-9 col-lg-9">
+ 				<div class= "panel panel-primary">
+ 					<div class= "panel-heading">
+ 						<center>
+ 						<h3 class= "panel-title"> Nueva Persona </h3>
+ 						</center>
+ 					</div>
+ 					
+ 					<div class="panel-body">
+
+<form class="form-horizontal" role="form" action="<?php  echo BASE_URL;?>persons/insert" method="post">
+	
+	<div class="form-group">
+		<label class="col-sm-3 control-label">Nombre:</label>
+		<div class="col-sm-5">
+			<input type="text" class="form-control" name="nombre" placeholder="Nombre" required> 
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="col-sm-3 control-label">Apellido:</label>
+		<div class="col-sm-5">
+			<input type="text" class="form-control" name="apellido" placeholder="Apellido" required> 
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="col-sm-3 control-label">Fecha de Nacimiento:</label>
+		<div class="col-sm-5">
+			<input type="date" class="form-control" name="fecha_nacimiento" placeholder="Fecha de Nacimiento" required> 
+		</div>
+	</div>
+
+		
+		<div class="form-group">
+
+		<label class="col-sm-3 control-label">sexo:</label>
+		<div class="col-sm-5">
+					<?php  for ($i=0; $i < count($this->_listado); $i++):?>
+					<input type="radio" name="sexo" value="<?php echo $this->_listado[$i]['id_sexo'] ?>" required><?php echo $this->_listado[$i]['sexo'] ?><br>
+					<?php endfor;?>
+		</div>
+	</div>
+
+		<div class="form-group">
+
+		<label class="col-sm-3 control-label">Tipo de persona:</label>
+		<div class="col-sm-5">
+			<select id="tipo" name="tipo" class="form-control" required>
+					<option value="0">SELECCIONE</option>
+			</select>			
+		</div>
+	</div>
+
+	
+	<div class="form-group" style="display:none;" id="divcedulae">
+		<label class="col-sm-3 control-label">Cedula Escolar:</label>
+		<div class="col-sm-5">
+			<input type="text" class="form-control" name="cedulae" placeholder="Cedula Escolar"> 
+		</div>
+	</div>
+
+	<div class="form-group" style="display:none;" id="divcedula">
+		<label class="col-sm-3 control-label">Cedula de Identidad:</label>
+		<div class="col-sm-5">
+			<input type="numeric" class="form-control" name="cedula" placeholder="Cedula"> 
+		</div>
+	</div>
+
+	<div class="form-group" style="display:none;" id="divgrado">
+
+		<label class="col-sm-3 control-label">Grado:</label>
+		<div class="col-sm-5">
+			<select id="grado" name="grado" class="form-control">
+					<option value="0">SELECCIONE</option>
+			</select>			
+		</div>
+	</div>
+
+	<div class="form-group" style="display:none;" id="divseccion">
+
+		<label class="col-sm-3 control-label">Seccion:</label>
+		<div class="col-sm-5">
+			<select id="seccion" name="seccion" class="form-control">
+					<option value="0">SELECCIONE</option>
+			</select>			
+		</div>
+	</div>
+
+	<div class="form-group" style="display:none;" id="divcargo">
+
+		<label class="col-sm-3 control-label">Cargo:</label>
+		<div class="col-sm-5">
+			<select id="cargo" name="cargo" class="form-control">
+					<option value="0">SELECCIONE</option>
+			</select>			
+		</div>
+	</div>
+
+
+
+
+	<center>
+		<input type="submit" class="btn btn-primary" value="Registrar">
+	</center>
+			
+ 				
+					
+</form>
+ 					
+			
+ <span id="respuesta" name="respuesta"> </span>						
+ 					
+	</div>
+ 				</div>
+ 		</div>
+ 			<!-- no borrar -->
+ 			</div>
+ 			
+ 		</div>
+ 	</div>
